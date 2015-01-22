@@ -12,7 +12,7 @@ class FunctionModule {
         FunctionModule() {}
     public: 
         virtual FunctionData* getFunctions(int *count_functions) = 0;
-        virtual FunctionResult* functionExecute(regval functionId, regval *args) = 0;
+        virtual FunctionResult* executeFunction(regval functionId, regval *args) = 0;
         virtual void destroy() = 0;
         virtual ~FunctionModule() {}
 };
