@@ -14,10 +14,10 @@ struct FunctionData {
     regval command_index;
     regval count_params;
     bool give_exception;
-    char *name;
+    const char *name;
     FunctionData() : 
         command_index(0), count_params(0), give_exception(false), name(NULL) {}
-    FunctionData(regval command_index, regval count_params, bool give_exception, char *name) : 
+    FunctionData(regval command_index, regval count_params, bool give_exception, const char *name) : 
         command_index(command_index), count_params(count_params), give_exception(give_exception), name(name) {}
 };
 
@@ -25,10 +25,10 @@ struct AxisData {
     regval axis_index;
     regval upper_value;
     regval lower_value;
-    char *name;
+    const char *name;
     AxisData() : 
         axis_index(0), upper_value(0), lower_value(0), name(NULL) {}
-    AxisData(regval axis_index, regval upper_value, regval lower_value, char *name) : 
+    AxisData(regval axis_index, regval upper_value, regval lower_value, const char *name) : 
         axis_index(axis_index), upper_value(upper_value), lower_value(lower_value), name(name) {}
 };
 
