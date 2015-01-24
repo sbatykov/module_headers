@@ -16,7 +16,11 @@ class FunctionModule {
         virtual void destroy() = 0;
         virtual ~FunctionModule() {}
 };
+
 typedef FunctionModule* (*getFunctionModuleObject_t)();
+extern "C" {
+	__declspec(dllexport) FunctionModule* getFunctionModuleObject();
+}
 
 #endif	/* FUNCTION_MODULE_H */
 

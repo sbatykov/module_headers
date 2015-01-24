@@ -29,7 +29,11 @@ class RobotModule {
         virtual void destroy() = 0;
         virtual ~RobotModule() {}
 };
+
 typedef RobotModule* (*getRobotModuleObject_t)();
+extern "C" {
+	__declspec(dllexport) RobotModule* getRobotModuleObject();
+}
 
 #endif	/* ROBOT_MODULE_H */
 
