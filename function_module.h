@@ -11,7 +11,7 @@ class FunctionModule {
     protected:
         FunctionModule() {}
     public: 
-        virtual FunctionData* getFunctions(int *count_functions) = 0;
+        virtual FunctionData** getFunctions(int *count_functions) = 0;
         virtual FunctionResult* executeFunction(regval functionId, regval *args) = 0;
         virtual void destroy() = 0;
         virtual ~FunctionModule() {}
@@ -19,7 +19,7 @@ class FunctionModule {
 
 typedef FunctionModule* (*getFunctionModuleObject_t)();
 extern "C" {
-	__declspec(dllexport) FunctionModule* getFunctionModuleObject();
+    __declspec(dllexport) FunctionModule* getFunctionModuleObject();
 }
 
 #endif	/* FUNCTION_MODULE_H */

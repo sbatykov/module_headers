@@ -13,7 +13,7 @@ class ControlModule {
         ControlModule() {}
     public: 
         virtual int init() = 0;
-        virtual AxisData* getAxis(int *count_axis) = 0;
+        virtual AxisData** getAxis(int *count_axis) = 0;
         virtual void execute(sendAxisState_t sendAxisState) = 0;
         virtual void final() = 0;
         virtual void destroy() = 0;
@@ -22,7 +22,7 @@ class ControlModule {
 
 typedef ControlModule* (*getControlModuleObject_t)();
 extern "C" {
-	__declspec(dllexport) ControlModule* getControlModuleObject();
+    __declspec(dllexport) ControlModule* getControlModuleObject();
 }
 
 #endif	/* CONTROL_MODULE_H */

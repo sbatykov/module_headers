@@ -25,8 +25,8 @@ class RobotModule {
         RobotModule() {}
     public: 
         virtual int init() = 0;
-        virtual FunctionData* getFunctions(int *count_functions) = 0;
-        virtual AxisData* getAxis(int *count_axis) = 0;
+        virtual FunctionData** getFunctions(int *count_functions) = 0;
+        virtual AxisData** getAxis(int *count_axis) = 0;
         virtual Robot* robotRequire() = 0;
         virtual void robotFree(Robot *robot) = 0;
         virtual void final() = 0;
@@ -36,7 +36,7 @@ class RobotModule {
 
 typedef RobotModule* (*getRobotModuleObject_t)();
 extern "C" {
-	__declspec(dllexport) RobotModule* getRobotModuleObject();
+    __declspec(dllexport) RobotModule* getRobotModuleObject();
 }
 
 #endif	/* ROBOT_MODULE_H */
