@@ -12,12 +12,13 @@ class ControlModule {
     protected:
         ControlModule() {}
     public: 
-        virtual int init() = 0;
+        virtual int getVersion() = 0;
+		virtual int init() = 0;
         virtual AxisData** getAxis(int *count_axis) = 0;
         virtual void execute(sendAxisState_t sendAxisState) = 0;
         virtual void final() = 0;
         virtual void destroy() = 0;
-        virtual ~ControlModule() {}
+		virtual ~ControlModule() {}
 };
 
 typedef ControlModule* (*getControlModuleObject_t)();

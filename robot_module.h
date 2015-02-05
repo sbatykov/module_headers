@@ -24,14 +24,15 @@ class RobotModule {
     protected:
         RobotModule() {}
     public: 
-        virtual int init() = 0;
+		virtual int getVersion() = 0;
+		virtual int init() = 0;
         virtual FunctionData** getFunctions(int *count_functions) = 0;
         virtual AxisData** getAxis(int *count_axis) = 0;
         virtual Robot* robotRequire() = 0;
         virtual void robotFree(Robot *robot) = 0;
         virtual void final() = 0;
-        virtual void destroy() = 0;
-        virtual ~RobotModule() {}
+		virtual void destroy() = 0;
+		virtual ~RobotModule() {}
 };
 
 typedef RobotModule* (*getRobotModuleObject_t)();
