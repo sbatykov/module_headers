@@ -24,7 +24,7 @@ class RobotModule {
     protected:
         RobotModule() {}
     public: 
-		virtual int getVersion() = 0;
+		virtual const char *getUID() = 0;
 		virtual int init() = 0;
         virtual FunctionData** getFunctions(int *count_functions) = 0;
         virtual AxisData** getAxis(int *count_axis) = 0;

@@ -11,7 +11,7 @@ class FunctionModule {
     protected:
         FunctionModule() {}
     public: 
-		virtual int getVersion() = 0;
+		virtual const char *getUID() = 0;
         virtual FunctionData** getFunctions(int *count_functions) = 0;
         virtual FunctionResult* executeFunction(regval functionId, regval *args) = 0;
 		virtual void destroy() = 0;
