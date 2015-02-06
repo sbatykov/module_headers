@@ -12,6 +12,7 @@ class ControlModule {
     protected:
         ControlModule() {}
     public: 
+        virtual const char *getUID() = 0;
         virtual int init() = 0;
         virtual AxisData** getAxis(int *count_axis) = 0;
         virtual void execute(sendAxisState_t sendAxisState) = 0;
