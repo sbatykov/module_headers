@@ -11,6 +11,8 @@
 #define ROBOT_COMMAND_HAND_CONTROL_BEGIN -1
 #define ROBOT_COMMAND_HAND_CONTROL_END -2
 
+typedef std::function<void(unsigned short int, const char*, va_list)> t_printf_color_module;
+
 class Robot {
     protected:
         Robot() {}
@@ -25,6 +27,7 @@ class RobotModule {
         RobotModule() {}
     public: 
         virtual const char *getUID() = 0;
+        virtual void prepare(t_printf_color_module f_printf) = 0;
         virtual int init() = 0;
         virtual FunctionData** getFunctions(int *count_functions) = 0;
         virtual AxisData** getAxis(int *count_axis) = 0;
