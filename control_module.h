@@ -13,6 +13,7 @@ class ControlModule {
         ControlModule() {}
     public: 
         virtual const char *getUID() = 0;
+        virtual void prepare(colorPrintf_t *colorPrintf_p, colorPrintfVA_t *colorPrintfVA_p) = 0;
         virtual int init() = 0;
         virtual AxisData** getAxis(int *count_axis) = 0;
         virtual void execute(sendAxisState_t sendAxisState) = 0;

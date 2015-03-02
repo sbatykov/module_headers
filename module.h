@@ -45,5 +45,35 @@ class FunctionResult {
         }
 };
 
+struct ConsoleColor {
+    enum colors {
+        black = 0,
+        dark_blue = 1,
+        dark_green = 2,
+        dark_aqua = 3,
+        dark_red = 4,
+        dark_purple = 5,
+        dark_yellow = 6,
+        dark_white = 7,
+        gray = 8,
+        blue = 9,
+        green = 10,
+        aqua = 11,
+        red = 12,
+        purple = 13,
+        yellow = 14,
+        white = 15
+    };
+    
+    colors color_text;
+    colors color_back;
+    ConsoleColor() : color_text(ConsoleColor::white), color_back(ConsoleColor::black) {};
+    ConsoleColor(colors color_text) : color_text(color_text), color_back(ConsoleColor::black) {};
+    ConsoleColor(colors color_text, colors color_back) : color_text(color_text), color_back(color_back) {};
+};
+
+typedef void (colorPrintf_t)(void *, ConsoleColor, const char *, ...);
+typedef void (colorPrintfVA_t)(void *, ConsoleColor, const char *, va_list);
+
 #endif	/* MODULE_H */
 
