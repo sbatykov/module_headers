@@ -6,7 +6,7 @@
 
 #ifndef CONTROL_MODULE_H
 #define	CONTROL_MODULE_H
-typedef void (*sendAxisState_t)(regval, regval);
+typedef void (*sendAxisState_t)(system_value, variable_value);
 
 class ControlModule {
     protected:
@@ -15,7 +15,7 @@ class ControlModule {
         virtual const char *getUID() = 0;
         virtual void prepare(colorPrintf_t *colorPrintf_p, colorPrintfVA_t *colorPrintfVA_p) = 0;
         virtual int init() = 0;
-        virtual AxisData** getAxis(int *count_axis) = 0;
+        virtual AxisData** getAxis(unsigned int *count_axis) = 0;
         virtual void execute(sendAxisState_t sendAxisState) = 0;
         virtual void final() = 0;
         virtual void destroy() = 0;

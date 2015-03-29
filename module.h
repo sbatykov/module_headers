@@ -7,40 +7,40 @@
 #ifndef MODULE_H
 #define	MODULE_H
 
-typedef unsigned int regnum;
-typedef int regval;
+typedef int system_value;
+typedef double variable_value;
 
 struct FunctionData {
-    regval command_index;
-    regval count_params;
+    system_value command_index;
+    unsigned int count_params;
     bool give_exception;
     const char *name;
     FunctionData() : 
         command_index(0), count_params(0), give_exception(false), name(NULL) {}
-    FunctionData(regval command_index, regval count_params, bool give_exception, const char *name) : 
+    FunctionData(system_value command_index, unsigned int count_params, bool give_exception, const char *name) : 
         command_index(command_index), count_params(count_params), give_exception(give_exception), name(name) {}
 };
 
 struct AxisData {
-    regval axis_index;
-    regval upper_value;
-    regval lower_value;
+    system_value axis_index;
+    variable_value upper_value;
+    variable_value lower_value;
     const char *name;
     AxisData() : 
         axis_index(0), upper_value(0), lower_value(0), name(NULL) {}
-    AxisData(regval axis_index, regval upper_value, regval lower_value, const char *name) : 
+    AxisData(system_value axis_index, variable_value upper_value, variable_value lower_value, const char *name) : 
         axis_index(axis_index), upper_value(upper_value), lower_value(lower_value), name(name) {}
 };
 
 class FunctionResult {
     public:
         char type;
-        regval result;
+        variable_value result;
         FunctionResult(char type) : 
             type(type) {}
-        FunctionResult(char type, regval result) : 
+        FunctionResult(char type, variable_value result) : 
             type(type), result(result) {}
-        virtual void destroy() {
+        void destroy() {
             delete this;
         }
 };
