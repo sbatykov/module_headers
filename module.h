@@ -33,13 +33,20 @@ struct AxisData {
 };
 
 class FunctionResult {
-    public:
+    private:
         char type;
         variable_value result;
+    public:
         FunctionResult(char type) : 
 			type(type), result(0.0f) {}
         FunctionResult(char type, variable_value result) : 
             type(type), result(result) {}
+        virtual char getType() {
+            return type;
+        }
+        virtual variable_value getResult() {
+            return result;
+        }
         virtual void destroy() {
             delete this;
         }
