@@ -37,10 +37,10 @@ class FunctionResult {
         char type;
         variable_value result;
         FunctionResult(char type) : 
-            type(type) {}
+			type(type), result(0.0f) {}
         FunctionResult(char type, variable_value result) : 
             type(type), result(result) {}
-        void destroy() {
+        virtual void destroy() {
             delete this;
         }
 };
