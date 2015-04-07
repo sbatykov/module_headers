@@ -15,8 +15,8 @@ class Robot {
     protected:
         Robot() {}
     public: 
-        virtual FunctionResult* executeFunction(regval command_index, regval *args) = 0;
-        virtual void axisControl(regval axis_index, regval value) = 0;
+        virtual FunctionResult* executeFunction(system_value command_index, variable_value *args) = 0;
+        virtual void axisControl(system_value axis_index, variable_value value) = 0;
         virtual ~Robot() {}
 };
 
@@ -25,9 +25,10 @@ class RobotModule {
         RobotModule() {}
     public: 
         virtual const char *getUID() = 0;
+        virtual void prepare(colorPrintf_t *colorPrintf_p, colorPrintfVA_t *colorPrintfVA_p) = 0;
         virtual int init() = 0;
-        virtual FunctionData** getFunctions(int *count_functions) = 0;
-        virtual AxisData** getAxis(int *count_axis) = 0;
+        virtual FunctionData** getFunctions(unsigned int *count_functions) = 0;
+        virtual AxisData** getAxis(unsigned int *count_axis) = 0;
         virtual Robot* robotRequire() = 0;
         virtual void robotFree(Robot *robot) = 0;
         virtual void final() = 0;
