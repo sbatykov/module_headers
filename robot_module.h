@@ -15,7 +15,7 @@ class Robot {
     protected:
         Robot() {}
     public: 
-        virtual FunctionResult* executeFunction(system_value command_index, variable_value *args) = 0;
+        virtual FunctionResult* executeFunction(system_value command_index, void **args) = 0;
         virtual void axisControl(system_value axis_index, variable_value value) = 0;
         virtual ~Robot() {}
 };
