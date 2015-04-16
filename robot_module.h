@@ -26,12 +26,16 @@ class RobotModule {
     public: 
         virtual const char *getUID() = 0;
         virtual void prepare(colorPrintf_t *colorPrintf_p, colorPrintfVA_t *colorPrintfVA_p) = 0;
-        virtual int init() = 0;
         virtual FunctionData** getFunctions(unsigned int *count_functions) = 0;
         virtual AxisData** getAxis(unsigned int *count_axis) = 0;
+        
+        virtual int init() = 0;
+        virtual int readPC(void *buffer, unsigned int buffer_length) = 0;
         virtual Robot* robotRequire() = 0;
         virtual void robotFree(Robot *robot) = 0;
         virtual void final() = 0;
+        virtual void *writePC(unsigned int *buffer_length) = 0;
+        
         virtual void destroy() = 0;
         virtual ~RobotModule() {}
 };
