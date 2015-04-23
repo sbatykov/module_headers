@@ -11,14 +11,19 @@ typedef int system_value;
 typedef double variable_value;
 
 struct FunctionData {
+    enum ParamTypes {
+        STRING,
+        FLOAT
+    };
+    
     system_value command_index;
     unsigned int count_params;
-    bool give_exception;
+    ParamTypes *params;
     const char *name;
     FunctionData() : 
-        command_index(0), count_params(0), give_exception(false), name(NULL) {}
-    FunctionData(system_value command_index, unsigned int count_params, bool give_exception, const char *name) : 
-        command_index(command_index), count_params(count_params), give_exception(give_exception), name(name) {}
+        command_index(0), count_params(0), params(NULL), name(NULL) {}
+    FunctionData(system_value command_index, system_value count_params, ParamTypes *params, const char *name) : 
+        command_index(command_index), count_params(count_params), params(params), name(name) {}
 };
 
 struct AxisData {
