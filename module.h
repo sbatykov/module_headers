@@ -87,5 +87,11 @@ struct ConsoleColor {
 typedef void (colorPrintf_t)(void *, ConsoleColor, const char *, ...);
 typedef void (colorPrintfVA_t)(void *, ConsoleColor, const char *, va_list);
 
+#ifdef _WIN32
+	#define PREFIX_FUNC_DLL __declspec(dllexport)
+#else
+	#define PREFIX_FUNC_DLL 
+#endif
+
 #endif	/* MODULE_H */
 

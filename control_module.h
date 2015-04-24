@@ -36,7 +36,7 @@ class ControlModule {
 
 typedef ControlModule* (*getControlModuleObject_t)();
 extern "C" {
-    __declspec(dllexport) ControlModule* getControlModuleObject();
+	PREFIX_FUNC_DLL ControlModule* getControlModuleObject();
 }
 
 #endif	/* CONTROL_MODULE_H */
