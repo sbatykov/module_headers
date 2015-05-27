@@ -31,7 +31,7 @@ class FunctionModule {
 
 typedef FunctionModule* (*getFunctionModuleObject_t)();
 extern "C" {
-    __declspec(dllexport) FunctionModule* getFunctionModuleObject();
+	PREFIX_FUNC_DLL FunctionModule* getFunctionModuleObject();
 }
 
 #endif	/* FUNCTION_MODULE_H */
