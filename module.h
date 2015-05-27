@@ -43,7 +43,7 @@ class FunctionResult {
         variable_value result;
     public:
         FunctionResult(char type) : 
-			type(type), result(0.0f) {}
+            type(type), result(0.0f) {}
         FunctionResult(char type, variable_value result) : 
             type(type), result(result) {}
         virtual char getType() {
@@ -55,6 +55,7 @@ class FunctionResult {
         virtual void destroy() {
             delete this;
         }
+        virtual ~FunctionResult() {};
 };
 
 struct ConsoleColor {
