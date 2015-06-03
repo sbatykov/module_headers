@@ -40,7 +40,7 @@ class RobotModule {
         virtual void final() = 0;
         
         //intepreter - program & lib
-        virtual void *readPC(void *buffer, unsigned int buffer_length) = 0;
+        virtual void readPC(void *buffer, unsigned int buffer_length) = 0;
         
         //intepreter - program
         virtual int startProgram(int uniq_index) = 0;
