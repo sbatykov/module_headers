@@ -13,7 +13,7 @@ class ControlModule {
         ControlModule() {}
     public:
         //init
-        virtual const char *getUID() = 0;
+        virtual const struct ModuleInfo& getModuleInfo() = 0;
         virtual void prepare(colorPrintf_t *colorPrintf_p, colorPrintfVA_t *colorPrintfVA_p) = 0;
         
         //compiler only

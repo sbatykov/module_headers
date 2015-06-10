@@ -10,6 +10,17 @@
 typedef int system_value;
 typedef double variable_value;
 
+struct ModuleInfo {
+	char *uid;
+	char *name;	
+	unsigned short version;
+	enum Modes {
+		FULL = 0,
+		SPEC = 1
+	} mode;
+	char *digest;
+};
+
 struct FunctionData {
     enum ParamTypes {
         STRING,
