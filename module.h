@@ -15,7 +15,7 @@ struct ModuleInfo {
 	char *name;	
 	unsigned short version;
 	enum Modes {
-		FULL = 0,
+		PROD = 0,
 		SPEC = 1
 	} mode;
 	char *digest;
