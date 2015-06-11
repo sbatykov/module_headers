@@ -12,7 +12,6 @@ typedef double variable_value;
 
 struct ModuleInfo {
 	char *uid;
-	char *name;	
 	unsigned short version;
 	enum Modes {
 		PROD = 0,
