@@ -12,11 +12,11 @@ typedef double variable_value;
 
 struct ModuleInfo {
 	char *uid;
-	unsigned short version;
-	enum Modes {
+	enum Modes : unsigned short {
 		PROD = 0,
 		SPEC = 1
 	} mode;
+	unsigned short version;
 	char *digest;
 };
 
