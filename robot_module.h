@@ -11,12 +11,18 @@
 #define ROBOT_COMMAND_HAND_CONTROL_BEGIN -1
 #define ROBOT_COMMAND_HAND_CONTROL_END -2
 
+enum CommandMode : unsigned char {
+    wait = 1,
+    not_wait = 2,
+    package = 3
+};
+
 class Robot {
     protected:
         Robot() {}
     public:
         virtual void prepare(colorPrintfRobot_t *colorPrintf_p, colorPrintfRobotVA_t *colorPrintfVA_p) = 0;
-        virtual FunctionResult* executeFunction(system_value command_index, void **args) = 0;
+        virtual FunctionResult* executeFunction(CommandMode mode, system_value command_index, void **args) = 0;
         virtual void axisControl(system_value axis_index, variable_value value) = 0;
         virtual ~Robot() {}
 };
