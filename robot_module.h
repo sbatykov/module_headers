@@ -15,7 +15,8 @@ enum CommandMode : unsigned char {
     wait = 1,
     not_wait = 2,
     package = 3,
-    end_of_package = 4
+    end_of_package_wait = 4,
+    end_of_package_no_wait = 5
 };
 
 class Robot {
