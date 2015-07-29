@@ -6,7 +6,10 @@
 
 #ifndef CONTROL_MODULE_H
 #define	CONTROL_MODULE_H
-typedef void (*sendAxisState_t)(system_value, variable_value);
+
+class ControlModule;
+
+typedef void (*sendAxisState_t)(ControlModule*, system_value, variable_value);
 
 class ControlModule {
     protected:
