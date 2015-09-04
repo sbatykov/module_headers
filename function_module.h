@@ -7,6 +7,8 @@
 #ifndef FUNCTION_MODULE_H
 #define FUNCTION_MODULE_H
 
+#define FUNCTION_MODULE_API_VERSION 100;
+
 class FunctionModule {
  protected:
   FunctionModule() {}
@@ -37,6 +39,7 @@ class FunctionModule {
 
 typedef FunctionModule *(*getFunctionModuleObject_t)();
 extern "C" {
+PREFIX_FUNC_DLL unsigned short getApiVersion() { return FUNCTION_MODULE_API_VERSION; };
 PREFIX_FUNC_DLL FunctionModule *getFunctionModuleObject();
 }
 

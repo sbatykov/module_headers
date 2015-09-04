@@ -11,17 +11,17 @@ typedef int system_value;
 typedef double variable_value;
 
 struct ModuleInfo {
-	char *uid;
-	enum Modes : unsigned short {
-		PROD = 0,
-		SPEC = 1
-	} mode;
-	unsigned short version;
-	char *digest;
+  char *uid;
+  enum Modes : unsigned short {
+    PROD = 0,
+    SPEC = 1
+  } mode;
+  unsigned short version;
+  char *digest;
 };
 
 struct FunctionData {
-  enum ParamTypes { STRING, FLOAT };
+  enum ParamTypes : unsigned char { STRING = 1, FLOAT = 2 };
 
   system_value command_index;
   unsigned int count_params;
@@ -52,15 +52,16 @@ struct AxisData {
 };
 
 class FunctionResult {
+ enum Types : unsigned char { EXCEPTION = 0, VALUE = 1 };
  private:
-  char type;
+  Types type;
   variable_value result;
 
  public:
-  FunctionResult(char type) : type(type), result(0.0f) {}
-  FunctionResult(char type, variable_value result)
+  FunctionResult(Types type) : type(type), result(0.0f) {}
+  FunctionResult(Types type, variable_value result)
       : type(type), result(result) {}
-  virtual char getType() { return type; }
+  virtual Types getType() { return type; }
   virtual variable_value getResult() { return result; }
   virtual void destroy() { delete this; }
   virtual ~FunctionResult(){};
