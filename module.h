@@ -112,4 +112,5 @@ typedef void(colorPrintfRobotVA_t)(void *, const char *, ConsoleColor,
 #define PREFIX_FUNC_DLL
 #endif
 
+typedef unsigned short (*getApiVersion_t)();
 #endif /* MODULE_H */
