@@ -12,16 +12,13 @@ typedef double variable_value;
 
 struct ModuleInfo {
   char *uid;
-  enum Modes : unsigned short {
-    PROD = 0,
-    SPEC = 1
-  } mode;
+  enum Modes { PROD, SPEC } mode;
   unsigned short version;
   char *digest;
 };
 
 struct FunctionData {
-  enum ParamTypes : unsigned char { STRING = 1, FLOAT = 2 };
+  enum ParamTypes { STRING, FLOAT };
 
   system_value command_index;
   unsigned int count_params;
@@ -52,7 +49,7 @@ struct AxisData {
 };
 
 class FunctionResult {
- enum Types : unsigned char { EXCEPTION = 0, VALUE = 1 };
+ enum Types { EXCEPTION, VALUE };
  private:
   Types type;
   variable_value result;
