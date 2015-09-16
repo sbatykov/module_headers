@@ -49,7 +49,8 @@ struct AxisData {
 };
 
 class FunctionResult {
- enum Types { EXCEPTION, VALUE };
+ public:
+  enum Types { EXCEPTION, VALUE };
  private:
   Types type;
   variable_value result;

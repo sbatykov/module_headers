@@ -9,9 +9,7 @@
 
 #define CONTROL_MODULE_API_VERSION 100;
 
-class ControlModule;
-
-typedef void (*sendAxisState_t)(ControlModule *, system_value, variable_value);
+typedef void (*sendAxisState_t)(void *, system_value, variable_value);
 
 class ControlModule {
  protected:
@@ -48,7 +46,7 @@ typedef unsigned short (*getControlModuleApiVersion_t)();
 typedef ControlModule *(*getControlModuleObject_t)();
 
 extern "C" {
-PREFIX_FUNC_DLL unsigned short getControlModuleApiVersion() { return CONTROL_MODULE_API_VERSION; };
+PREFIX_FUNC_DLL unsigned short getControlModuleApiVersion() /*{ return CONTROL_MODULE_API_VERSION; }*/;
 PREFIX_FUNC_DLL ControlModule *getControlModuleObject();
 }
 

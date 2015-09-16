@@ -72,7 +72,7 @@ typedef unsigned short (*getRobotModuleApiVersion_t)();
 typedef RobotModule *(*getRobotModuleObject_t)();
 
 extern "C" {
-PREFIX_FUNC_DLL unsigned short getRobotModuleApiVersion() { return ROBOT_MODULE_API_VERSION; };
+PREFIX_FUNC_DLL unsigned short getRobotModuleApiVersion() /*{ return ROBOT_MODULE_API_VERSION; }*/;
 PREFIX_FUNC_DLL RobotModule *getRobotModuleObject();
 }
 
