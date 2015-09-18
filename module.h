@@ -11,9 +11,9 @@ typedef int system_value;
 typedef double variable_value;
 
 enum class ModuleTypes {
-	Robot = 0,
-	Control = 1,
-	Function = 2
+	Robot = 1,
+	Control = 2,
+	Function = 3
 };
 
 struct ModuleInfo {
