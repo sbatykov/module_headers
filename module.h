@@ -10,6 +10,12 @@
 typedef int system_value;
 typedef double variable_value;
 
+enum class ModuleTypes {
+	Robot = 0,
+	Control = 1,
+	Function = 2
+};
+
 struct ModuleInfo {
   char *uid;
   enum Modes { PROD, SPEC } mode;
