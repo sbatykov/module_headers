@@ -10,6 +10,19 @@
 typedef int system_value;
 typedef double variable_value;
 
+enum class ModuleTypes {
+	Robot = 1,
+	Control = 2,
+	Function = 3
+};
+
+struct ModuleInfo {
+  char *uid;
+  enum Modes { PROD, SPEC } mode;
+  unsigned short version;
+  char *digest;
+};
+
 struct FunctionData {
   enum ParamTypes { STRING, FLOAT };
 
@@ -42,15 +55,17 @@ struct AxisData {
 };
 
 class FunctionResult {
+ public:
+  enum Types { EXCEPTION, VALUE };
  private:
-  char type;
+  Types type;
   variable_value result;
 
  public:
-  FunctionResult(char type) : type(type), result(0.0f) {}
-  FunctionResult(char type, variable_value result)
+  FunctionResult(Types type) : type(type), result(0.0f) {}
+  FunctionResult(Types type, variable_value result)
       : type(type), result(result) {}
-  virtual char getType() { return type; }
+  virtual Types getType() { return type; }
   virtual variable_value getResult() { return result; }
   virtual void destroy() { delete this; }
   virtual ~FunctionResult(){};
@@ -101,4 +116,5 @@ typedef void(colorPrintfRobotVA_t)(void *, const char *, ConsoleColor,
 #define PREFIX_FUNC_DLL
 #endif
 
+typedef unsigned short (*getApiVersion_t)();
 #endif /* MODULE_H */

@@ -7,6 +7,8 @@
 #ifndef CONTROL_MODULE_H
 #define CONTROL_MODULE_H
 
+#define CONTROL_MODULE_API_VERSION 100;
+
 class ControlModule;
 
 typedef void (*sendAxisState_t)(ControlModule *, system_value, variable_value);
@@ -17,7 +19,7 @@ class ControlModule {
 
  public:
   // init
-  virtual const char *getUID() = 0;
+  virtual const struct ModuleInfo& getModuleInfo() = 0;
   virtual void prepare(colorPrintfModule_t *colorPrintf_p,
                        colorPrintfModuleVA_t *colorPrintfVA_p) = 0;
 
@@ -42,8 +44,11 @@ class ControlModule {
   virtual ~ControlModule() {}
 };
 
+typedef unsigned short (*getControlModuleApiVersion_t)();
 typedef ControlModule *(*getControlModuleObject_t)();
+
 extern "C" {
+PREFIX_FUNC_DLL unsigned short getControlModuleApiVersion() /*{ return CONTROL_MODULE_API_VERSION; }*/;
 PREFIX_FUNC_DLL ControlModule *getControlModuleObject();
 }
 
