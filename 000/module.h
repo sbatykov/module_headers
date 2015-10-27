@@ -95,4 +95,10 @@ typedef void(colorPrintfRobot_t)(void *, const char *, ConsoleColor,
 typedef void(colorPrintfRobotVA_t)(void *, const char *, ConsoleColor,
                                    const char *, va_list);
 
+#ifdef _WIN32
+#define PREFIX_FUNC_DLL __declspec(dllexport)
+#else
+#define PREFIX_FUNC_DLL
+#endif                                   
+                                   
 #endif /* MODULE_H_000 */
