@@ -41,8 +41,8 @@ typedef unsigned short (*getFunctionModuleApiVersion_t)();
 typedef FunctionModule *(*getFunctionModuleObject_t)();
 
 extern "C" {
-PREFIX_FUNC_DLL unsigned short getFunctionModuleApiVersion() /*{ return FUNCTION_MODULE_API_VERSION; }*/;
-PREFIX_FUNC_DLL FunctionModule *getFunctionModuleObject();
+  PREFIX_FUNC_DLL unsigned short getFunctionModuleApiVersion() /*{ return FUNCTION_MODULE_API_VERSION; }*/;
+  PREFIX_FUNC_DLL FunctionModule *getFunctionModuleObject();
 }
 
 #endif /* FUNCTION_MODULE_H */
