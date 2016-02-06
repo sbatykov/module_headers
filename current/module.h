@@ -16,7 +16,8 @@ typedef double variable_value;
 enum class ModuleTypes {
 	Robot = 1,
 	Control = 2,
-	Function = 3
+	Function = 3,
+        DB = 4
 };
 
 struct ModuleInfo {
