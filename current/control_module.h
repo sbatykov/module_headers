@@ -7,7 +7,7 @@
 #ifndef CONTROL_MODULE_H
 #define CONTROL_MODULE_H
 
-#define CONTROL_MODULE_API_VERSION 100;
+#define CONTROL_MODULE_API_VERSION 101;
 
 class ControlModule;
 

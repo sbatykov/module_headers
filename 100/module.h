@@ -4,8 +4,11 @@
  *
  */
 
-#ifndef MODULE_H
-#define MODULE_H
+#ifndef MODULE_H_100
+#define MODULE_H_100
+
+#include <cstdarg>
+#include <cstddef>
 
 typedef int system_value;
 typedef double variable_value;
@@ -116,5 +119,4 @@ typedef void(colorPrintfRobotVA_t)(void *, const char *, ConsoleColor,
 #define PREFIX_FUNC_DLL
 #endif
 
-typedef unsigned short (*getApiVersion_t)();
-#endif /* MODULE_H */
+#endif /* MODULE_H_100 */

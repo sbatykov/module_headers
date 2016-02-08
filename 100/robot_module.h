@@ -4,10 +4,12 @@
  *
  */
 
-#ifndef ROBOT_MODULE_H
-#define ROBOT_MODULE_H
+#ifndef ROBOT_MODULE_H_100
+#define ROBOT_MODULE_H_100
 
+#ifndef MODULE_WRAPPER_H
 #define ROBOT_MODULE_API_VERSION 100;
+#endif
 
 #define ROBOT_COMMAND_FREE 0
 #define ROBOT_COMMAND_HAND_CONTROL_BEGIN -1
@@ -78,4 +80,4 @@ extern "C" {
 }
 #endif
 
-#endif /* ROBOT_MODULE_H */
+#endif /* ROBOT_MODULE_H_100 */

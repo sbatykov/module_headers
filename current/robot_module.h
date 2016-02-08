@@ -7,7 +7,7 @@
 #ifndef ROBOT_MODULE_H
 #define ROBOT_MODULE_H
 
-#define ROBOT_MODULE_API_VERSION 100;
+#define ROBOT_MODULE_API_VERSION 101;
 
 #define ROBOT_COMMAND_FREE 0
 #define ROBOT_COMMAND_HAND_CONTROL_BEGIN -1
@@ -16,9 +16,10 @@
 enum CommandMode : unsigned char {
   wait = 1,
   not_wait = 2,
-  package = 3,
-  end_of_package_wait = 4,
-  end_of_package_no_wait = 5
+  package_wait = 3,
+  package_no_wait = 4,
+  end_of_package_wait = 5,
+  end_of_package_no_wait = 6
 };
 
 class Robot {
@@ -28,6 +29,7 @@ class Robot {
  public:
   virtual void prepare(colorPrintfRobot_t *colorPrintf_p,
                        colorPrintfRobotVA_t *colorPrintfVA_p) = 0;
+  virtual const char *getUniqName() = 0;
   virtual FunctionResult *executeFunction(CommandMode mode,
                                           system_value command_index,
                                           void **args) = 0;
@@ -52,8 +54,6 @@ class RobotModule {
 
   // intepreter - devices
   virtual int init() = 0;
-  virtual Robot *robotRequire() = 0;
-  virtual void robotFree(Robot *robot) = 0;
   virtual void final() = 0;
 
   // intepreter - program & lib
@@ -61,6 +61,9 @@ class RobotModule {
 
   // intepreter - program
   virtual int startProgram(int uniq_index) = 0;
+  virtual Robot **getAviableRobots(unsigned int required_count_robots, unsigned int *returned_count_robots) = 0;
+  virtual Robot *robotRequire(Robot *robot) = 0;
+  virtual void robotFree(Robot *robot) = 0;
   virtual int endProgram(int uniq_index) = 0;
 
   // destructor

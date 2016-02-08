@@ -1,17 +1,28 @@
 /*
- * File:   function_module.h
+ * File:   robot_module.h
  * Author: m79lol
  *
  */
 
-#ifndef FUNCTION_MODULE_H
-#define FUNCTION_MODULE_H
+#ifndef DB_MODULE_H
+#define DB_MODULE_H
 
-#define FUNCTION_MODULE_API_VERSION 101;
+#define DB_MODULE_API_VERSION 101;
 
-class FunctionModule {
+struct ModuleData {
+  const char *iid;
+  const char *hash
+  unsigned short version;
+}
+
+struct RobotData {
+  const ModuleData *mdoule_data;
+  const char *robot_uid;
+};
+
+class DBModule {
  protected:
-  FunctionModule() {}
+  DBModule() {}
 
  public:
   // init
@@ -20,35 +31,33 @@ class FunctionModule {
                        colorPrintfModuleVA_t *colorPrintfVA_p) = 0;
 
   // compiler only
-  virtual FunctionData **getFunctions(unsigned int *count_functions) = 0;
   virtual void *writePC(unsigned int *buffer_length) = 0;
 
   // intepreter - devices
   virtual int init() = 0;
   virtual void final() = 0;
-  
+
   // intepreter - program & lib
   virtual void readPC(void *buffer, unsigned int buffer_length) = 0;
-  
+
   // intepreter - program
   virtual int startProgram(int uniq_index) = 0;
-  virtual FunctionResult *executeFunction(system_value function_index,
-                                          void **args) = 0;
+  virtual RobotData **makeChoise(RobotData** robots_data, unsigned int count_robots);
   virtual int endProgram(int uniq_index) = 0;
 
   // destructor
   virtual void destroy() = 0;
-  virtual ~FunctionModule() {}
+  virtual ~DBModule() {}
 };
 
-typedef unsigned short (*getFunctionModuleApiVersion_t)();
-typedef FunctionModule *(*getFunctionModuleObject_t)();
+typedef unsigned short (*getDBModuleApiVersion_t)();
+typedef DBModule *(*getDBModuleObject_t)();
 
 #ifndef MODULE_WRAPPER
 extern "C" {
-  PREFIX_FUNC_DLL unsigned short getFunctionModuleApiVersion() /*{ return FUNCTION_MODULE_API_VERSION; }*/;
-  PREFIX_FUNC_DLL FunctionModule *getFunctionModuleObject();
+    PREFIX_FUNC_DLL unsigned short getDBModuleApiVersion() /*{ return ROBOT_MODULE_API_VERSION; }*/;
+    PREFIX_FUNC_DLL DBModule *getDBModuleObject();
 }
 #endif
 
-#endif /* FUNCTION_MODULE_H */
+#endif /* DB_MODULE_H */

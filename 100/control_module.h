@@ -4,10 +4,12 @@
  *
  */
 
-#ifndef CONTROL_MODULE_H
-#define CONTROL_MODULE_H
+#ifndef CONTROL_MODULE_H_100
+#define CONTROL_MODULE_H_100
 
+#ifndef MODULE_WRAPPER_H
 #define CONTROL_MODULE_API_VERSION 100;
+#endif
 
 class ControlModule;
 
@@ -54,4 +56,4 @@ extern "C" {
 }
 #endif
 
-#endif /* CONTROL_MODULE_H */
+#endif /* CONTROL_MODULE_H_100 */
