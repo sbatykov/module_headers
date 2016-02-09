@@ -7,6 +7,10 @@
 #ifndef CONTROL_MODULE_H_000
 #define CONTROL_MODULE_H_000
 
+#ifndef MODULE_WRAPPER_H
+#define CONTROL_MODULE_API_VERSION 000
+#endif
+
 class ControlModule;
 
 typedef void (*sendAxisState_t)(ControlModule *, system_value, variable_value);

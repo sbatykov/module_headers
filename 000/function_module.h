@@ -7,6 +7,10 @@
 #ifndef FUNCTION_MODULE_H_000
 #define FUNCTION_MODULE_H_000
 
+#ifndef MODULE_WRAPPER_H
+#define FUNCTION_MODULE_API_VERSION 000
+#endif
+
 class FunctionModule {
  protected:
   FunctionModule() {}

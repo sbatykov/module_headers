@@ -9,14 +9,14 @@
 
 #define DB_MODULE_API_VERSION 101;
 
-struct ModuleData {
+struct DBModuleData {
   const char *iid;
-  const char *hash
+  const char *hash;
   unsigned short version;
-}
+};
 
-struct RobotData {
-  const ModuleData *mdoule_data;
+struct DBRobotData {
+  const DBModuleData *mdoule_data;
   const char *robot_uid;
 };
 
@@ -42,7 +42,7 @@ class DBModule {
 
   // intepreter - program
   virtual int startProgram(int uniq_index) = 0;
-  virtual RobotData **makeChoise(RobotData** robots_data, unsigned int count_robots);
+  virtual DBRobotData **makeChoise(DBRobotData** robots_data, unsigned int count_robots) = 0;
   virtual int endProgram(int uniq_index) = 0;
 
   // destructor
@@ -55,7 +55,7 @@ typedef DBModule *(*getDBModuleObject_t)();
 
 #ifndef MODULE_WRAPPER
 extern "C" {
-    PREFIX_FUNC_DLL unsigned short getDBModuleApiVersion() /*{ return ROBOT_MODULE_API_VERSION; }*/;
+    PREFIX_FUNC_DLL unsigned short getDBModuleApiVersion() /*{ return DB_MODULE_API_VERSION; }*/;
     PREFIX_FUNC_DLL DBModule *getDBModuleObject();
 }
 #endif

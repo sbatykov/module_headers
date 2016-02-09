@@ -109,9 +109,9 @@ typedef void(colorPrintfModule_t)(void *, ConsoleColor, const char *, ...);
 typedef void(colorPrintfModuleVA_t)(void *, ConsoleColor, const char *,
                                     va_list);
 
-typedef void(colorPrintfRobot_t)(void *, const char *, ConsoleColor,
+typedef void(colorPrintfRobot_t)(void *, ConsoleColor,
                                  const char *, ...);
-typedef void(colorPrintfRobotVA_t)(void *, const char *, ConsoleColor,
+typedef void(colorPrintfRobotVA_t)(void *, ConsoleColor,
                                    const char *, va_list);
 
 #ifdef _WIN32
