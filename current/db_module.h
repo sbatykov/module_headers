@@ -42,7 +42,7 @@ class DBModule {
 
   // intepreter - program
   virtual int startProgram(int uniq_index) = 0;
-  virtual DBRobotData *makeChoise(DBRobotData** robots_data, unsigned int count_robots) = 0;
+  virtual const DBRobotData *makeChoise(const DBRobotData** robots_data, unsigned int count_robots) = 0;
   virtual int endProgram(int uniq_index) = 0;
 
   // destructor
