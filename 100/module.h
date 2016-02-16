@@ -7,6 +7,10 @@
 #ifndef MODULE_H_100
 #define MODULE_H_100
 
+#ifndef MODULE_WRAPPER_H
+#define MODULE_API_VERSION 100
+#endif
+
 #include <cstdarg>
 #include <cstddef>
 

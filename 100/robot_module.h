@@ -7,10 +7,6 @@
 #ifndef ROBOT_MODULE_H_100
 #define ROBOT_MODULE_H_100
 
-#ifndef MODULE_WRAPPER_H
-#define ROBOT_MODULE_API_VERSION 100
-#endif
-
 #define ROBOT_COMMAND_FREE 0
 #define ROBOT_COMMAND_HAND_CONTROL_BEGIN -1
 #define ROBOT_COMMAND_HAND_CONTROL_END -2
@@ -75,7 +71,7 @@ typedef RobotModule *(*getRobotModuleObject_t)();
 
 #ifndef MODULE_WRAPPER
 extern "C" {
-    PREFIX_FUNC_DLL unsigned short getRobotModuleApiVersion() /*{ return ROBOT_MODULE_API_VERSION; }*/;
+    PREFIX_FUNC_DLL unsigned short getRobotModuleApiVersion() /*{ return MODULE_API_VERSION; }*/;
     PREFIX_FUNC_DLL RobotModule *getRobotModuleObject();
 }
 #endif

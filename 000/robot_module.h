@@ -7,10 +7,6 @@
 #ifndef ROBOT_MODULE_H_000
 #define ROBOT_MODULE_H_000
 
-#ifndef MODULE_WRAPPER_H
-#define ROBOT_MODULE_API_VERSION 000
-#endif
-
 enum CommandMode : unsigned char {
   wait = 1,
   not_wait = 2,

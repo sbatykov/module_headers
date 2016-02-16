@@ -7,10 +7,6 @@
 #ifndef CONTROL_MODULE_H_100
 #define CONTROL_MODULE_H_100
 
-#ifndef MODULE_WRAPPER_H
-#define CONTROL_MODULE_API_VERSION 100;
-#endif
-
 class ControlModule;
 
 typedef void (*sendAxisState_t)(ControlModule *, system_value, variable_value);
@@ -51,7 +47,7 @@ typedef ControlModule *(*getControlModuleObject_t)();
 
 #ifndef MODULE_WRAPPER
 extern "C" {
-    PREFIX_FUNC_DLL unsigned short getControlModuleApiVersion() /*{ return CONTROL_MODULE_API_VERSION; }*/;
+    PREFIX_FUNC_DLL unsigned short getControlModuleApiVersion() /*{ return MODULE_API_VERSION; }*/;
     PREFIX_FUNC_DLL ControlModule *getControlModuleObject();
 }
 #endif
