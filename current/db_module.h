@@ -7,6 +7,16 @@
 #ifndef DB_MODULE_H
 #define DB_MODULE_H
 
+struct DBFunctionData {
+  enum CallType {
+    Unknow = 0,
+    Guarante = 1,
+    Probably = 2
+  };
+  const char *name;
+  CallType call_type;
+};
+
 struct DBModuleData {
   const char *iid;
   const char *hash;
@@ -40,7 +50,7 @@ class DBModule {
 
   // intepreter - program
   virtual int startProgram(int uniq_index) = 0;
-  virtual const DBRobotData *makeChoise(const DBRobotData** robots_data, unsigned int count_robots) = 0;
+  virtual const DBRobotData *makeChoise(const DBFunctionData** function_data, unsigned int count_functions, const DBRobotData** robots_data, unsigned int count_robots) = 0;
   virtual int endProgram(int uniq_index) = 0;
 
   // destructor
