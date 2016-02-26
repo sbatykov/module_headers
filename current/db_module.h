@@ -14,6 +14,8 @@ struct DBFunctionData {
     Probably = 2
   };
   const char *name;
+  const char *context_hash;
+  system_value position;
   CallType call_type;
 };
 
