@@ -25,10 +25,10 @@ enum class ModuleTypes {
 };
 
 struct ModuleInfo {
-  char *uid;
+  const char *uid;
   enum Modes { PROD, SPEC } mode;
   unsigned short version;
-  char *digest;
+  const char *digest;
 };
 
 struct FunctionData {
