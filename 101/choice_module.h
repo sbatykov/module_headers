@@ -4,10 +4,10 @@
  *
  */
 
-#ifndef DB_MODULE_H
-#define DB_MODULE_H
+#ifndef CHOICE_MODULE_H
+#define CHOICE_MODULE_H
 
-struct DBFunctionData {
+struct ChoiceFunctionData {
   enum CallType {
     Unknow = 0,
     Guarante = 1,
@@ -19,20 +19,20 @@ struct DBFunctionData {
   CallType call_type;
 };
 
-struct DBModuleData {
+struct ChoiceModuleData {
   const char *iid;
   const char *hash;
   unsigned short version;
 };
 
-struct DBRobotData {
-  const DBModuleData *module_data;
+struct ChoiceRobotData {
+  const ChoiceModuleData *module_data;
   const char *robot_uid;
 };
 
-class DBModule {
+class ChoiceModule {
  protected:
-  DBModule() {}
+  ChoiceModule() {}
 
  public:
   // init
@@ -52,22 +52,22 @@ class DBModule {
 
   // intepreter - program
   virtual int startProgram(int uniq_index) = 0;
-  virtual const DBRobotData *makeChoise(const DBFunctionData** function_data, unsigned int count_functions, const DBRobotData** robots_data, unsigned int count_robots) = 0;
+  virtual const ChoiceRobotData *makeChoice(const ChoiceFunctionData** function_data, unsigned int count_functions, const ChoiceRobotData** robots_data, unsigned int count_robots) = 0;
   virtual int endProgram(int uniq_index) = 0;
 
   // destructor
   virtual void destroy() = 0;
-  virtual ~DBModule() {}
+  virtual ~ChoiceModule() {}
 };
 
-typedef unsigned short (*getDBModuleApiVersion_t)();
-typedef DBModule *(*getDBModuleObject_t)();
+typedef unsigned short (*getChoiceModuleApiVersion_t)();
+typedef ChoiceModule *(*getChoiceModuleObject_t)();
 
 #ifndef MODULE_WRAPPER
 extern "C" {
-    PREFIX_FUNC_DLL unsigned short getDBModuleApiVersion() /*{ return MODULE_API_VERSION; }*/;
-    PREFIX_FUNC_DLL DBModule *getDBModuleObject();
+    PREFIX_FUNC_DLL unsigned short getChoiceModuleApiVersion() /*{ return MODULE_API_VERSION; }*/;
+    PREFIX_FUNC_DLL ChoiceModule *getChoiceModuleObject();
 }
 #endif
 
-#endif /* DB_MODULE_H */
+#endif /* CHOICE_MODULE_H */
