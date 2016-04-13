@@ -63,14 +63,14 @@ class RobotModule {
   virtual void final() = 0;
 
   // intepreter - program & lib
-  virtual void readPC(void *buffer, unsigned int buffer_length) = 0;
+  virtual int readPC(int pc_index, void *buffer, unsigned int buffer_length) = 0;
 
   // intepreter - program
-  virtual int startProgram(int uniq_index) = 0;
+  virtual int startProgram(int run_index, int pc_index) = 0;
   virtual AviableRobotsResult *getAviableRobots() = 0;
   virtual Robot *robotRequire(Robot *robot) = 0;
   virtual void robotFree(Robot *robot) = 0;
-  virtual int endProgram(int uniq_index) = 0;
+  virtual int endProgram(int run_index) = 0;
 
   // destructor
   virtual void destroy() = 0;
