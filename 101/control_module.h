@@ -27,7 +27,7 @@ class ControlModule {
 
   // intepreter - devices
   virtual int init() = 0;
-  virtual void execute(sendAxisState_t sendAxisState) = 0;
+  virtual void execute(int run_index, sendAxisState_t sendAxisState) = 0;
   virtual void final() = 0;
 
   // intepreter - program & lib

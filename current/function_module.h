@@ -30,7 +30,7 @@ class FunctionModule {
 
   // intepreter - program
   virtual int startProgram(int run_index, int pc_index) = 0;
-  virtual FunctionResult *executeFunction(system_value function_index,
+  virtual FunctionResult *executeFunction(int run_index, system_value function_index,
                                           void **args) = 0;
   virtual int endProgram(int run_index) = 0;
 

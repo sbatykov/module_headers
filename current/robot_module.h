@@ -28,7 +28,7 @@ class Robot {
   virtual void prepare(colorPrintfRobot_t *colorPrintf_p,
                        colorPrintfRobotVA_t *colorPrintfVA_p) = 0;
   virtual const char *getUniqName() = 0;
-  virtual FunctionResult *executeFunction(CommandMode mode,
+  virtual FunctionResult *executeFunction(int run_index, CommandMode mode,
                                           system_value command_index,
                                           void **args) = 0;
   virtual void axisControl(system_value axis_index, variable_value value) = 0;
@@ -67,9 +67,9 @@ class RobotModule {
 
   // intepreter - program
   virtual int startProgram(int run_index, int pc_index) = 0;
-  virtual AviableRobotsResult *getAviableRobots() = 0;
-  virtual Robot *robotRequire(Robot *robot) = 0;
-  virtual void robotFree(Robot *robot) = 0;
+  virtual AviableRobotsResult *getAviableRobots(int run_index) = 0;
+  virtual Robot *robotRequire(int run_index, Robot *robot) = 0;
+  virtual void robotFree(int run_index, Robot *robot) = 0;
   virtual int endProgram(int run_index) = 0;
 
   // destructor
