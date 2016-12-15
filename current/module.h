@@ -8,7 +8,7 @@
 #define MODULE_H
 
 #ifndef MODULE_WRAPPER_H
-#define MODULE_API_VERSION 101
+#define MODULE_API_VERSION 102
 #endif
 
 #include <cstdarg>
@@ -117,6 +117,13 @@ typedef void(colorPrintfRobot_t)(void *, ConsoleColor,
                                  const char *, ...);
 typedef void(colorPrintfRobotVA_t)(void *, ConsoleColor,
                                    const char *, va_list);
+
+struct RobotInfo {
+  const char* uniqueName;
+  const char* serialNumber;
+};
+
+typedef const bool* (initCallback_t)(unsigned size, const RobotInfo robots[]);
 
 #ifdef _WIN32
 #define PREFIX_FUNC_DLL __declspec(dllexport)

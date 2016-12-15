@@ -4,8 +4,8 @@
  *
  */
 
-#ifndef CHOICE_MODULE_H_101
-#define CHOICE_MODULE_H_101
+#ifndef CHOICE_MODULE_H_102
+#define CHOICE_MODULE_H_102
 
 struct ChoiceFunctionData {
   enum CallType {
@@ -45,7 +45,7 @@ class ChoiceModule {
   virtual void *writePC(unsigned int *buffer_length) = 0;
 
   // intepreter - devices
-  virtual int init() = 0;
+  virtual int init(initCallback_t& initCallback) = 0;
   virtual void final() = 0;
 
   // intepreter - program & lib
@@ -71,4 +71,4 @@ extern "C" {
 }
 #endif
 
-#endif /* CHOICE_MODULE_H_101 */
+#endif /* CHOICE_MODULE_H_102 */

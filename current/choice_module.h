@@ -45,7 +45,7 @@ class ChoiceModule {
   virtual void *writePC(unsigned int *buffer_length) = 0;
 
   // intepreter - devices
-  virtual int init() = 0;
+  virtual int init(initCallback_t& initCallback) = 0;
   virtual void final() = 0;
 
   // intepreter - program & lib
