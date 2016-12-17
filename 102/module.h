@@ -123,7 +123,12 @@ struct RobotInfo {
   const char* serialNumber;
 };
 
-typedef const bool* (initCallback_t)(unsigned size, const RobotInfo robots[]);
+struct RobotInfoResult {
+  const bool* serialNumbers;
+  const char* signature;
+};
+
+typedef const RobotInfoResult* (initCallback_t)(unsigned size, const RobotInfo robots[]);
 
 #ifdef _WIN32
 #define PREFIX_FUNC_DLL __declspec(dllexport)
